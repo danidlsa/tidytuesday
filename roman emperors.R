@@ -3,9 +3,9 @@ emperors <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/t
 library(tidyverse)
 library(lubridate)
 library(scales)
-library(ggsci)
 library(plotly)
 library(htmlwidgets)
+library(RColorBrewer)
 
 
 #Tidying data 
@@ -38,7 +38,7 @@ timeline_plot<-ggplot(emperors,aes(x=reign_start,y=0, col=rise, label=name,
        y="Year (start of reign)") +
   theme_classic() + 
   geom_hline(yintercept=0, color = "black", size=0.3) +
-  geom_segment(aes(y=position,yend=0,xend=reign_start), color='black', size=0.2) +
+  geom_segment(aes(y=position,yend=0,xend=reign_start), color='grey', size=0.2) +
   geom_point(aes(y=0), size=3) + 
   theme(axis.line.y=element_blank(),
         axis.text.y=element_blank(),
@@ -51,12 +51,15 @@ timeline_plot<-ggplot(emperors,aes(x=reign_start,y=0, col=rise, label=name,
         title=element_text(face="bold", size=14),
         legend.title=element_text(size=12, face="bold"),
         axis.title.y=element_text(size=10),
-        
+        plot.background = element_rect("cornsilk"),
+        panel.grid.major=element_blank(),
+        panel.background = element_rect("cornsilk"),
+        legend.background = element_rect("cornsilk")
   ) +
   geom_text(aes(x=reign_start,y=0.1,label=year),size=2,vjust=0.5, 
             color='black', angle=45, check_overlap = TRUE) +
   geom_text(aes(y=text_position,label=name),size=2.5) +
-  scale_color_npg() 
+  scale_color_brewer(palette = "Set1") 
 print(timeline_plot)
 
 #Saving plot
@@ -72,4 +75,5 @@ saveWidget(timeline_plotly, 'roman_emperors.html')
 api_create(timeline_plotly, filename = "roman_emperors")
 
 #See the plot in: https://plot.ly/~dlsantos.daniela/1.embed 
+
 
