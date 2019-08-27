@@ -1,4 +1,3 @@
-setwd("C:/Users/Usuario/Dropbox/datos de miércoles")
 library(tidyverse)
 #library(devtools)
 #install_github("https://github.com/Ryo-N7/tvthemes")
@@ -19,9 +18,7 @@ table(themselves$role)
 
 g <- ggplot(ts, aes(x=as.numeric(season), y=n, fill=role)) + 
   geom_area(position="fill") +
-  theme_simpsons(title.font="Akbar",
-                 text.font="Akbar",
-                 axis.text.size=8) + 
+  theme_simpsons(axis.text.size=8) + 
   scale_fill_simpsons(name="Role by gender:") +
   labs(x="Season",
        y="Ratio",
