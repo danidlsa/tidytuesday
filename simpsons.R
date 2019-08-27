@@ -7,7 +7,7 @@ windowsFonts(sans="Akbar")
 loadfonts(device="win")
 loadfonts(device="postscript")
 
-simpsons <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-27/simpsons-guests.csv")
+simpsons <- readr::read_delim("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-27/simpsons-guests.csv", delim = "|")
 
 themselves <- simpsons %>% filter(role=="Himself" | role=="Herself") %>%
   mutate(n=1) %>% 
