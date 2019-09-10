@@ -52,8 +52,9 @@ map <- ggplot(accidents_states, aes(state=acc_state, fill=`Number of people inju
 
 ggsave("parks map.png", map, height=15, width=25, units="cm")
 
-#Line plot - gender x age (in the database, gender is only assigned as F or M when num_injured==1, or when all of the people injured are of the same gender)
-
+#Line plot - gender x age 
+#Gender is only assigned as F or M when num_injured==1, or when all of the people injured are of the same gender)
+#Age is measured through a proxy: age of the youngest person injured in the accident
 safer_parks <- safer_parks %>% filter(gender=="F" | gender=="M") %>%
   mutate(Gender=ifelse(gender=="F", "Women", "Men"))
 
