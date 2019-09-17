@@ -54,7 +54,7 @@ colnames(df_final)[1:9] <- c("Gas price", "Alaska", "Intermountain", "Midwest", 
 g <- ggcorr(df_final, method=c("complete", "pearson"), nbreaks = 5, palette="RdBu",
        label=TRUE, label_size=4, label_alpha = TRUE, label_round=2, hjust=0.75,
        size=4, color="grey20", layout.exp = 1) +
-  labs(title="Correlation between gas price anual variation and the number of visitors  \nin National US Parks over the years",
+  labs(title="Correlation between annual variation of gas prices and number of visitors \nin National US Parks over the years",
        subtitle="By region",
        caption="Visualization: @danidlsa")+
   theme(plot.title=element_text(face="bold", size=14),
