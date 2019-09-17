@@ -1,14 +1,10 @@
-setwd("C:/Users/Usuario/Dropbox/datos de miércoles")
 library(tidyverse)
 library(vtable)
-library(corrgram)
 library(GGally)
 library(extrafont)
 windowsFonts(sans="Segoe UI")
 loadfonts(device="win")
 loadfonts(device="postscript")
-
-devtools::install_github("tidyverse/tidyr")
 
 park_visits <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-09-17/national_parks.csv")
 gas_price <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-09-17/gas_price.csv")
