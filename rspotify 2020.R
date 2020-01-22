@@ -1,5 +1,4 @@
 
-setwd("C:/Users/USUARIO/Dropbox/datos de miércoles")
 #install.packages("Rspotify")
 library(Rspotify)
 library(httpuv)
