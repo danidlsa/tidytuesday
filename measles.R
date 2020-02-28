@@ -22,7 +22,7 @@ xx <- subset(x, is.na(xrel)==F)
 
 p <- ggplot(xx, aes(x=state, y=xrel)) + 
   geom_boxplot(alpha=.5, fill="grey80", color="#6b626b", width=.5) +
-  geom_jitter(aes(color=xrel), size=1, width=.1) +
+  geom_jitter(aes(color=xrel), size=1, width=.1, alpha=.5) +
   scale_color_continuous(low="#9c8f9a", high="#242124") +
   coord_flip() +
   geom_label_repel(data=subset(x, xrel>15), aes(label=paste0(firstup(`county/district`),
@@ -38,8 +38,9 @@ p <- ggplot(xx, aes(x=state, y=xrel)) +
         plot.caption=element_text(size=9, color="#6b626b")) +
   labs(x="State", y="% of students exempted from vaccination for religious reasons",
        title="Exemption from Measles Vaccination for Religious Reasons",
-       subtitle="US States, 2017-2018",
+       subtitle="School Districts by State, US, 2017-2018",
        caption="Data: The Wall Street Journal | Visualization: @danidlsa")
+
 
 
 averages <- aggregate(xrel~state, xx, mean)
